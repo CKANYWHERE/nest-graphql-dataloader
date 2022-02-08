@@ -1,0 +1,58 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateStoryInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  createStory(createStoryInput: CreateStoryInput!): Story!
+  removeStory(id: Int!): Story!
+  updateStory(updateStoryInput: UpdateStoryInput!): Story!
+}
+
+type Query {
+  story(id: Int!): Story!
+}
+
+type Story {
+  comment: [StoryComment!]!
+  content: String!
+  createDate: DateTime!
+  file: [StoryFile!]!
+
+  """story 고유 아이디"""
+  storyId: String!
+  userId: String!
+  viewFlag: String!
+}
+
+type StoryComment {
+  comment: String!
+  commentId: String!
+  createDate: DateTime!
+  story: Story!
+  user: String!
+  viewFlag: String!
+}
+
+type StoryFile {
+  createDate: DateTime!
+  fileId: String!
+  fileName: String!
+  filePath: String!
+  story: Story!
+}
+
+input UpdateStoryInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
